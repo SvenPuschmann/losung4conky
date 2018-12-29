@@ -5,6 +5,7 @@ PACKAGE-DIR	=	package
 DIST-NAME	= 	losung4conky
 DEPLOY-DIR	=	$(PACKAGE-DIR)/$(DIST-NAME)
 
+# reuse targets install, uninstall, help from subdirectory src
 include src/Makefile
 
 # run the following targets unconditionally
