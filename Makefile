@@ -1,23 +1,23 @@
-# Makefile für die Entwicklung
+# makefile for development
 PACKAGE-DIR	=	package
 ZIP-FILE	= 	losung4conky
 DEPLOY-DIR	=	$(PACKAGE-DIR)/$(ZIP-FILE)
 
 include src/Makefile
 
-# Dateien in das Auslieferungsverzeichnis kopieren und verpacken
+# copy files to the deployment directory and create archive
 deploy: prep zip
 
-# Ausgabeverzeichnis leeren
+# clean output directory
 clean:
-	@echo "*** Ausgabeverzeichnis leeren ***"
+	@echo "*** Cleaning output directory ***"
 	rm -rf $(PACKAGE-DIR)
 	mkdir -p $(DEPLOY-DIR)
-	@echo
+	@echo "Done"
 
-# Dateien in das Auslieferungsverzeichnis kopieren
+# copy files to the deployment directory 
 prep: clean
-	@echo "*** Dateien in das Auslieferungsverzeichnis kopieren ***"
+	@echo "*** Copying files to the deployment directory ***"
 	cp src/losung.pl $(DEPLOY-DIR)
 	cp src/Makefile $(DEPLOY-DIR)
 	cp src/conkyrc-*-example $(DEPLOY-DIR)
@@ -25,11 +25,11 @@ prep: clean
 	cp doc/README.md $(DEPLOY-DIR)
 	cp doc/COPYING $(DEPLOY-DIR)
 	cp data/losungen*.csv $(DEPLOY-DIR)
-	@echo
+	@echo "Done"
 
-# Dateien verpacken
+# create distribution packages
 zip:
-	@echo "*** Dateien verpacken ***"
+	@echo "*** Creating distribution packages ***"
 	cd $(PACKAGE-DIR)&& zip -r -b /tmp $(ZIP-FILE) $(ZIP-FILE)
-	@echo
+	@echo "Done"
 	
