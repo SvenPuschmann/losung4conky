@@ -40,11 +40,22 @@ Deinstallation
 Im Folgenden bezeichnet das Kürzel <Jahr> das jeweils aktuelle Jahr, z.B. 2011.
 Fehlerbehebungen werden abhängig von den Einstellungen für das Aktualisierungsintervall (Konfigurationseintrag update_interval in der Datei .conkyrc) zeitverzögert wirksam.
 
+
 An Stelle der Losungen wird gar nichts angezeigt.
-Ursache:
-Möglicherweise haben Sie die Installation nicht richtig durchgeführt.
+Ursachen:
+1. Möglicherweise haben Sie die Installation nicht richtig durchgeführt.
+2. Die Einstellungen in der Konfigurationsdatei .conkyrc sind für den verwendeten Fenstermanager bzw. die verwendete Desktopumgebung (GNOME, KDE usw.) ungeeignet.
+
 Lösung:
-Wiederholen Sie die Installation. Falls Sie das Programm in ein anderes als das standardmäßige Programmverzeichnis installiert haben, tragen Sie dieses Verzeichnis auch in den Aufruf in der Datei .conkyrc ein. Eine Vorlage dafür finden Sie in der Datei conky-example-rc.
+Zu 1.:
+Wiederholen Sie die Installation. Falls Sie das Programm in ein anderes als das standardmäßige Programmverzeichnis installiert haben, tragen Sie dieses Verzeichnis auch in den Aufruf in der Datei .conkyrc ein. Vorlagen dafür finden Sie in den Dateien conkyrc-1.9-example (für Conky 1.9) und conkyrc-1.10-example (für Conky 1.10). 
+
+Zu 2.:
+Öffnen Sie in Ihrem Home-Verzeichnis die Datei .conkyrc. 
+Stellen Sie fest, welche Desktopumgebung Sie benutzen.
+Entfernen Sie für Ihre Desktopumgebung die Kommentarzeichen "# " bzw. "-- " vor den Einstellungen.
+Speichern Sie die Datei.
+
 
 An Stelle der Losungen wird der Fehlertext "The file losungen<Jahr>.csv is missing." angezeigt.
 Ursache:
@@ -52,11 +63,13 @@ Das Programm kann die Losungsdatei "losungen<Jahr>.csv" nicht finden.
 Lösung:
 Diese Datei befindet sich in der Archivdatei. Kopieren Sie die Datei von dort in das Programverzeichnis, in dem sich das Programm losungen.pl befindet.
 
+
 An Stelle der Losungen wird der Fehlertext "You don't have read permissions for file losungen<Jahr>.csv." angezeigt.
 Ursache:
 Sie verfügen nicht über Leseberechtigungen für die Losungsdatei "losungen<Jahr>.csv". 
 Lösung:
 Verändern Sie oder Ihr Administrator die Zugriffsberechtigungen für diese Datei, sodass Sie als Benutzer die Leseberechtigung für diese Datei haben (Befehl 'chmod +r losungen<jahr>.csv')
+
 
 An Stelle der Losungen wird der Fehlertext "The file losungen<Jahr>.csv is corrupted." angezeigt.
 Ursache:
@@ -64,11 +77,13 @@ Die Losungsdatei liegt in einem ungültigen Format vor.
 Lösung:
 Ersetzen Sie die Losungsdatei im Programmverzeichnis durch eine gültige Fassung aus der Archivdatei.
 
+
 Der angezeigte Losungstext enthält an Stelle von Umlauten unleserliche Symbole.
 Ursache:
 Die Losungsdatei ist beschädigt. 
 Lösung:
 Ersetzen Sie die Losungsdatei im Programmverzeichnis durch das Original aus dem Programmarchiv. 
+
 
 Unter KDE 4 werden die Losungen doppelt und überlagert angezeigt. Sie sind dadurch unleserlich.
 Ursache:

@@ -39,11 +39,21 @@ Uninstallation
 == Errors and solutions ==
 Preface: Below the phrase <Year> stands for the current year, e.g. 2011. Solutions might take effect after a little delay, depending on the setting update_interval in your file .conkyrc.
 
+
 Instead of the Bible verses nothing is shown.
 Reason:
-Probably you didn't follow the installation steps right.
+1. Probably you didn't follow the installation steps properly.
+2. The configuration settings in the file .conkyrc are unsuitable for your desktop environment (GNOME, KDE etc.).
+
 Solution:
-Repeat the installation. If you installed the program to another than the default directory, insert the right directory name to the call in .conkyrc. You can find a template in file conky-example-rc.
+To 1.:
+Repeat the installation. If you installed the program to another than the default directory, insert the right directory name to the call in .conkyrc. You can find a template in the files conkyrc-1.9-example (for Conky 1.9) and conkyrc-1.10-example (for Conky 1.10).
+To 2.:
+Open the file .conkyrc in your home directory.
+Find out which desktop environment you use. 
+Remove the heading remarks '# '/'-- ' from the settings for your desktop environment.
+Save the file.
+
 
 Instead of the Bible verses the message "The file losungen<year>.csv is missing." is shown.
 Reason:
@@ -51,11 +61,13 @@ The program can't find the file "losungen<year>.csv".
 Solution:
 The required file is in the archive file. Copy the file there to the program directory of losungen.pl.
 
+
 Instead of the Bible verses the message "You don't have read permissions for file losungen<year>.csv." is shown.
 Reason:
 You don't have read access permissions for the file "losungen<year>.csv".
 Solution:
 Change the access permissions for this file to make it readable, or ask your system admin to do this for you (command 'chmod +r losungen<year>.csv').
+
 
 Instead of the Bible verses the message "The file losungen<year>.csv is corrupted." is shown.
 Reason:
@@ -63,12 +75,14 @@ The file "losungen<year>.csv" is broken.
 Solution:
 Replace it with a valid version from the archive file. Copy the file there to the program directory of losungen.pl.
 
+
 The displayed text contains unreadable symbols instead of German umlauts.
 Reason:
 The file "losungen<year>.csv" is broken.
 Solution:
 Replace it with a valid version from the archive file.
 Copy the file there to the program directory of losungen.pl.
+
 
 In KDE 4 the Bible verses are shown overlayed two or more times and thus are unreadable.
 Reason:
