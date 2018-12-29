@@ -5,6 +5,9 @@ DEPLOY-DIR	=	$(PACKAGE-DIR)/$(ZIP-FILE)
 
 include src/Makefile
 
+# run the following targets unconditionally
+.PHONY: clean deploy prep zip
+
 # copy files to the deployment directory and create archive
 deploy: clean prep zip
 
