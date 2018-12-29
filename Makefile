@@ -34,14 +34,15 @@ prep:
 
 # create distribution packages
 tar:
-	@echo "*** Creating distribution package ***"
+	@echo "*** Creating TAR distribution packages ***"
 	cd $(PACKAGE-DIR) && \
 	tar -cf $(DIST-NAME).tar $(DIST-NAME) && \
 	gzip -k $(DIST-NAME).tar
 	@echo "Done"
 
 zip:
-	@echo "*** Creating distribution package ***"
-	cd $(PACKAGE-DIR) && zip -r -b /tmp $(DIST-NAME) $(DIST-NAME)
+	@echo "*** Creating ZIP distribution package ***"
+	cd $(PACKAGE-DIR) && \
+	zip -r -b /tmp $(DIST-NAME) $(DIST-NAME)
 	@echo "Done"
 
