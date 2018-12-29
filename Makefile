@@ -1,6 +1,7 @@
 # Makefile for development
 # TODO: Properly split the file into sub-makefiles in each directory.
 
+# Set variables
 PACKAGE-DIR	=	package
 DIST-NAME	= 	losung4conky
 DEPLOY-DIR	=	$(PACKAGE-DIR)/$(DIST-NAME)
