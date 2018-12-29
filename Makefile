@@ -1,4 +1,5 @@
-# makefile for development
+# Makefile for development
+# TODO: split 
 PACKAGE-DIR	=	package
 DIST-NAME	= 	losung4conky
 DEPLOY-DIR	=	$(PACKAGE-DIR)/$(DIST-NAME)
@@ -6,7 +7,12 @@ DEPLOY-DIR	=	$(PACKAGE-DIR)/$(DIST-NAME)
 include src/Makefile
 
 # run the following targets unconditionally
-.PHONY: clean deploy prep tar zip
+.PHONY: all clean deploy prep tar zip
+
+# Placeholder target
+all: 
+	@echo "There is nothing to compile."
+	@echo "Read doc/README.md (in English) or doc/LIESMICH.md (in German) for more information."
 
 # copy files to the deployment directory and create archive
 deploy: clean prep zip
