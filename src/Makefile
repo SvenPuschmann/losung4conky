@@ -3,6 +3,9 @@
 # destination directory for installing/uninstalling the program
 DEST	=	/usr/local/bin
 
+# run the following targets unconditionally
+.PHONY: help install uninstall
+
 # install the program onto computer
 install:
 	@echo "Installing..."
