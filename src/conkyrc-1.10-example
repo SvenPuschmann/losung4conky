@@ -1,0 +1,53 @@
+conky.config = {
+-- Diese Datei enthält nur die notwendigen Einstellungen für das Programm "Losungen für Conky".
+-- Ergänzen Sie damit Ihre Conky-Konfigurationsdatei .conkyrc.
+-- This file contains only the settings needed for the program "Losungen for Conky".
+-- Use it to add the appropriate settings to your .conkyrc-file.
+
+-- Notwendige Einstellung:
+-- Mandatory setting:
+	text_buffer_size = 768,
+
+-- GNOME 2, Openbox 3.5, XFCE4: keine besonderen Einstellungen notwendig
+-- GNOME 2, Openbox 3.5, XFCE4: no special settings required
+
+-- Einstellungen für Gnome 3 Shell, KDE Plasma 4 and 5, ElementaryOS:
+-- Settings for Gnome 3 shell, KDE Plasma 4 and 5, ElementaryOS:
+-- own_window = true,
+-- own_window_type = normal,
+-- own_window_transparent = true,
+-- own_window_argb_visual = true,
+-- own_window_argb_value = 255,
+-- own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager'
+
+-- Einstellungen für Cinnamon
+-- Settings for Cinnamon
+-- own_window = true,
+-- own_window_type = 'normal',
+-- own_window_transparent = true,
+-- own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+-- own_window_argb_visual = true,
+-- own_window_argb_value = 192,
+-- double_buffer = true,
+
+-- Einfachste Variante: Die Losungen mit Standardzeilenlänge von 40 Zeichen anzeigen.
+-- Das Losungsprogramm befindet sich dabei im Verzeichnis /usr/local/bin.
+-- Easiest way: Show the Losungen with default line length of 40 characters.
+-- The program is assumed to be in /usr/local/bin.
+};
+
+conky.text = [[
+${color} ${exec losung.pl}
+
+# oder/or
+# $ {color} ${exec /usr/local/bin/losung.pl}
+
+# Die Losungen mit einer anderen Zeilenlänge, hier 50 Zeichen, aufrufen.
+# Show the Losungen with user defined line length, e.g. 50 characters.
+# ${color} ${exec losung.pl 50}
+
+# Die Losungen aus einem anderen als dem standardmäßigen Programmverzeichnis aufrufen.
+# Run Losungen from another than the default directory.
+# ${color} ${exec <program directory>/losung.pl}
+
+]];
