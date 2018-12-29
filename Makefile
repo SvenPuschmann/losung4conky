@@ -21,8 +21,8 @@ prep: clean
 	cp src/losung.pl $(DEPLOY-DIR)
 	cp src/Makefile $(DEPLOY-DIR)
 	cp src/conkyrc-*-example $(DEPLOY-DIR)
-	cp doc/LIESMICH.txt $(DEPLOY-DIR)
-	cp doc/README.txt $(DEPLOY-DIR)
+	cp doc/LIESMICH.md $(DEPLOY-DIR)
+	cp doc/README.md $(DEPLOY-DIR)
 	cp doc/COPYING $(DEPLOY-DIR)
 	cp data/losungen*.csv $(DEPLOY-DIR)
 	@echo
