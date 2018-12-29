@@ -36,6 +36,20 @@ Das Programm wurde erfolgreich mit Perl 5, Conky 1.7-1.10 und verschiedenen Linu
 2. Machen Sie die Änderungen in der Datei .conkyrc (s.Schritt 3  der Installationsanleitung) rückgängig.
 3. Starten Sie Conky. Falls Conky schon gestartet war, als Sie Schritt 2 ausführten, sollten die Änderungen nach Ablauf des Aktualisierungsintervalls (in der Regel wenige Sekunden) wirksam werden. Andernfalls beenden Sie Conky und starten es erneut.
 
+## Entwicklung und Test
+1. Die aktuellen [Nutzungsbedingungen] (https://www.losungen.de/download/nutzungsbedingungen/) nachlesen.
+2. Die Losungstexte vom [Downloadserver] (https://www.losungen.de/download/) herunterladen. Benötigt werden die Texte im Format "CSV/TXT (Tab getrennt)". Falls diese nicht funktionieren, dann "CSV / TXT MAC (Tab getrennt)" versuchen.
+3. Die heruntergeladene Datei entpacken. 
+4. Die entpackte CSV-Datei umbenennen in losungen< Jahr >.csv, z.B. losungen2011.csv und in das Verzeichnis *data* kopieren.
+5. In das Basisverzeichnis des Programms wechseln.
+6. Pakete zur Softwareverteilung erstellen:
+   * alle Pakete erzeugen: *make* aufrufen
+   * nur ein ZIP-Archiv erzeugen: *make deploy* aufrufen
+   * nur die TAR- und TAR.GZ-Archive erzeugen: *make dist* aufrufen
+7. Das erzeugte Archiv auf ein Testsystem oder das Zielsystem kopieren und dort installieren.
+
+Um vorausschauend die Losungen mit einem späteren Datum zu testen (hier 01.01.2012): *date -s "01 Jan 2012"*
+
 # Fehler und Lösungen
 Im Folgenden bezeichnet das Kürzel <Jahr> das jeweils aktuelle Jahr, z.B. 2011.
 Fehlerbehebungen werden abhängig von den Einstellungen für das Aktualisierungsintervall (Konfigurationseintrag update_interval in der Datei .conkyrc) zeitverzögert wirksam.
