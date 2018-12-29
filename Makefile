@@ -6,11 +6,16 @@ PACKAGE-DIR	=	package
 DIST-NAME	= 	losung4conky
 DEPLOY-DIR	=	$(PACKAGE-DIR)/$(DIST-NAME)
 
-# reuse targets install, uninstall, help from subdirectory src
-include src/Makefile
+# By default (i.e. running make without parameters) create distribution packages.
+# The default target must be the first target.
+# In GNU make later that version 3.80 we can also use the .DEFAULT_GOAL variable.
+default: dist zip
 
 # run the following targets unconditionally
 .PHONY: all clean deploy prep tar zip
+
+# reuse targets install, uninstall, help from subdirectory src
+include src/Makefile
 
 # Placeholder target
 all: 

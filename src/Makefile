@@ -7,6 +7,8 @@ DEST	=	/usr/local/bin
 .PHONY: help install uninstall
 
 # install the program onto computer
+# This is also the default make target, which works by calling 
+# make without parameters.
 install:
 	@echo "Installing..."
 	cp losung.pl $(DEST)	
