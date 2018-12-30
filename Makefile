@@ -2,9 +2,9 @@
 # TODO: Properly split the file into sub-makefiles in each directory.
 
 # Set variables
-PACKAGE-DIR	=	package
+DIST-DIR	=	dist
 DIST-NAME	= 	losung4conky
-DEPLOY-DIR	=	$(PACKAGE-DIR)/$(DIST-NAME)
+DIST-HELPER-DIR	=	$(DIST-DIR)/$(DIST-NAME)
 
 # By default (i.e. running make without parameters) create distribution packages.
 # The default target must be the first target.
@@ -29,32 +29,32 @@ clean:
 	@cd data && $(MAKE) clean
 
 distclean: clean
-	@cd package && $(MAKE) distclean
+	@cd dist && $(MAKE) distclean
 
 # copy files to the deployment directory
 prep:
 	@echo "*** Copying files to the deployment directory ***"
-	mkdir -p $(DEPLOY-DIR) && \
-	cp src/losung.pl $(DEPLOY-DIR) && \
-	cp src/Makefile $(DEPLOY-DIR) && \
-	cp src/conkyrc-*-example $(DEPLOY-DIR) && \
-	cp doc/LIESMICH.md $(DEPLOY-DIR) && \
-	cp doc/README.md $(DEPLOY-DIR) && \
-	cp doc/COPYING $(DEPLOY-DIR) && \
-	cp data/losungen*.csv $(DEPLOY-DIR)
+	mkdir -p $(DIST-HELPER-DIR) && \
+	cp src/losung.pl $(DIST-HELPER-DIR) && \
+	cp src/Makefile $(DIST-HELPER-DIR) && \
+	cp src/conkyrc-*-example $(DIST-HELPER-DIR) && \
+	cp doc/LIESMICH.md $(DIST-HELPER-DIR) && \
+	cp doc/README.md $(DIST-HELPER-DIR) && \
+	cp doc/COPYING $(DIST-HELPER-DIR) && \
+	cp data/losungen*.csv $(DIST-HELPER-DIR)
 	@echo "Done"
 
 # create distribution packages
 tar:
 	@echo "*** Creating TAR distribution packages ***"
-	cd $(PACKAGE-DIR) && \
+	cd $(DIST-DIR) && \
 	tar -cf $(DIST-NAME).tar $(DIST-NAME) && \
 	gzip -k $(DIST-NAME).tar
 	@echo "Done"
 
 zip:
 	@echo "*** Creating ZIP distribution package ***"
-	cd $(PACKAGE-DIR) && \
+	cd $(DIST-DIR) && \
 	zip -r -b /tmp $(DIST-NAME) $(DIST-NAME)
 	@echo "Done"
 
