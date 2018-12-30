@@ -15,12 +15,10 @@ default: dist zip
 .PHONY: all clean deploy prep tar zip
 
 # reuse targets install, uninstall, help from subdirectory src
-include src/Makefile
+# include src/Makefile
 
-# Placeholder target
-all: 
-	@echo "There is nothing to compile."
-	@echo "Read doc/README.md (in English) or doc/LIESMICH.md (in German) for more information."
+all:
+	@cd data && $(MAKE) all
 
 # copy files to the deployment directory and create archive
 dist-tar: clean prep tar
