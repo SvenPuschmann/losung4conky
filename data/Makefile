@@ -1,1 +1,6 @@
-# Makefile for downloading the watchwords
+.PHONY: all
+
+all:
+	for y in $$( pwd ); do \
+		echo $$y; \
+	done
