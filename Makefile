@@ -12,7 +12,7 @@ DEPLOY-DIR	=	$(PACKAGE-DIR)/$(DIST-NAME)
 default: dist zip
 
 # run the following targets unconditionally
-.PHONY: all clean deploy prep tar zip
+.PHONY: all clean deploy distclean prep tar zip
 
 # reuse targets install, uninstall, help from subdirectory src
 # include src/Makefile
@@ -28,10 +28,8 @@ dist: dist-tar
 clean:
 	@cd data && $(MAKE) clean
 
-#	@echo "*** Cleaning output directory ***"
-#	cd $(PACKAGE-DIR) && \
-#	find . ! -name '.gitignore' ! -name '.' -exec rm -rf {} +
-#	@echo "Done"
+distclean: clean
+	@cd package && $(MAKE) distclean
 
 # copy files to the deployment directory
 prep:
