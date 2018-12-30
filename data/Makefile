@@ -3,16 +3,16 @@
 all:
 	@datadir=$$( pwd ); \
 	tempdir=$$( mktemp -d -t ); \
-	echo tempdir:$$tempdir;  \
-	y=$$( date +"%Y" ); \
-	# echo y=$$y; \
-	for i in $$y $$(($$y + 1)); do \
-		url="https://www.losungen.de/fileadmin/media-losungen/download/Losung_"$$i"_CSV.zip"; \
+	currentyear=$$( date +"%Y" ); \
+	for year in $$currentyear $$(($$currentyear + 1)); do \
+		filename="Losung_"$$year"_CSV.zip"; \
+		url="https://www.losungen.de/fileadmin/media-losungen/download/"$$filename; \
 		# test whether the watchword ZIP archive exists \
 		if curl --output /dev/null --silent --head --fail "$$url"; then \
+			echo "Downloading and extracting watchwords "$$year"..."; \
 			# download ZIP archive \
 			cd $$tempdir; \
-			curl $$url -O; \
+			curl --silent $$url -O; \
 			# unzip CSV file from ZIP archive \
 			unzip -q $$filename *$$year.csv; \
 			# rename and move CSV file to the data directory \
@@ -21,5 +21,4 @@ all:
 			rm -f *; \
 		fi; \
 	done; \
-	ls -rtl $$tempdir; \
 	rm -rf $$tempdir
