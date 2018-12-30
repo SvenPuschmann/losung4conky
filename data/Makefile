@@ -1,4 +1,4 @@
-.PHONY: all
+.PHONY: all clean
 
 all:
 	@datadir=$$( pwd ); \
@@ -22,3 +22,7 @@ all:
 		fi; \
 	done; \
 	rm -rf $$tempdir
+
+clean:
+	@find . ! -name '.gitignore' ! -name 'Makefile' ! -name '.' -exec \
+	rm --force --verbose --recursive {} +

@@ -25,12 +25,13 @@ dist-tar: clean prep tar
 dist-zip: clean prep zip
 dist: dist-tar
 
-# clean output directory: remove everything but .gitignore
 clean:
-	@echo "*** Cleaning output directory ***"
-	cd $(PACKAGE-DIR) && \
-	find . ! -name '.gitignore' ! -name '.' -exec rm -rf {} +
-	@echo "Done"
+	@cd data && $(MAKE) clean
+
+#	@echo "*** Cleaning output directory ***"
+#	cd $(PACKAGE-DIR) && \
+#	find . ! -name '.gitignore' ! -name '.' -exec rm -rf {} +
+#	@echo "Done"
 
 # copy files to the deployment directory
 prep:
