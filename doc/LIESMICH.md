@@ -12,13 +12,14 @@ Weitere Informationen: www.losungen.de
 Das Programm (aber nicht die Losungstexte) ist unter der GPL, Version 3 oder später, lizenziert, s. Datei COPYING.
 
 # Voraussetzungen
-Das Programm benötigt Linux, einen Perl-Interpreter und den Systemmonitor Conky. Außer zum erstmaligen Download des Programms und des Systemmonitors Conky und gegebenenfalls der Losungstexte ist keine Internetverbindung erforderlich.
-Eine aktuelle Fassung der Losungstexte ist im Programmarchiv enthalten. 
+Das Programm benötigt Linux, einen Perl-Interpreter und den Systemmonitor Conky.
+Um Installationspakete zu erzeugen, sind die Programme *gzip*, *tar* und *zip* notwendig.
+Außer zum erstmaligen Download des Programms und des Systemmonitors Conky und gegebenenfalls der Losungstexte ist keine Internetverbindung erforderlich.
 Das Programm wurde erfolgreich mit Perl 5, Conky 1.7-1.10 und verschiedenen Linux-Distributionen und Desktopumgebungen getestet.
 
 # Anleitung
 ## Installation
-1. Entpacken Sie die Archivdatei in ein temporäres Verzeichnis.
+1. Entpacken Sie das Installationspaket in ein temporäres Verzeichnis.
 2. Installieren Sie als Benutzer 'root' mit dem Befehl 'make install' das Programm.
    Standardmäßig wird das Programm dabei in das Verzeichnis /usr/local/bin installiert.
    Sie können ein anderes Verzeichnis angeben, indem sie den Befehl 
@@ -37,23 +38,22 @@ Das Programm wurde erfolgreich mit Perl 5, Conky 1.7-1.10 und verschiedenen Linu
 3. Starten Sie Conky. Falls Conky schon gestartet war, als Sie Schritt 2 ausführten, sollten die Änderungen nach Ablauf des Aktualisierungsintervalls (in der Regel wenige Sekunden) wirksam werden. Andernfalls beenden Sie Conky und starten es erneut.
 
 ## Entwicklung und Test
-1. Die aktuellen [Nutzungsbedingungen] (https://www.losungen.de/download/nutzungsbedingungen/) nachlesen.
-2. Die Losungstexte vom [Downloadserver] (https://www.losungen.de/download/) herunterladen. Benötigt werden die Texte im Format "CSV/TXT (Tab getrennt)". Falls diese nicht funktionieren, dann "CSV / TXT MAC (Tab getrennt)" versuchen.
-3. Die heruntergeladene Datei entpacken. 
-4. Die entpackte CSV-Datei umbenennen in losungen< Jahr >.csv, z.B. losungen2011.csv und in das Verzeichnis *data* kopieren.
-5. In das Basisverzeichnis des Programms wechseln.
-6. Pakete zur Softwareverteilung erstellen:
-   * alle Pakete erzeugen: *make* aufrufen
-   * nur ein ZIP-Archiv erzeugen: *make deploy* aufrufen
-   * nur die TAR- und TAR.GZ-Archive erzeugen: *make dist* aufrufen
-7. Das erzeugte Archiv auf ein Testsystem oder das Zielsystem kopieren und dort installieren.
+1. Lesen Sie die aktuellen [Nutzungsbedingungen] (https://www.losungen.de/download/nutzungsbedingungen/) nach.
+2. Laden Sie die Losungstexte vom [Downloadserver] (https://www.losungen.de/download/) herunter. Benötigt werden die Texte im Format "CSV/TXT (Tab getrennt)". Falls diese nicht funktionieren, versuchen Sie das Format "CSV / TXT MAC (Tab getrennt)".
+3. Entpacken Sie die heruntergeladene Datei. 
+4. Benennen Sie die entpackte CSV-Datei umbenennen in losungen< Jahr >.csv, z.B. losungen2011.csv und kopieren Sie diese in das Verzeichnis *data*.
+5. Wechseln Sie in das Wurzelverzeichnis des Programmcodes.
+6. Erstellen Sie mit den folgenden Befehlen die Installationspakete:
+   * als TAR-, TAR.GZ- und ZIP-Paket: *make*
+   * nur das ZIP-Paket: *make deploy*
+   * nur die TAR- und TAR.GZ-Pakete: *make dist*
+7. Kopieren Sie das erzeugte Installationspakete auf ein Testsystem oder das Zielsystem und installieren es dort.
 
-Um vorausschauend die Losungen mit einem späteren Datum zu testen (hier 01.01.2012): *date -s "01 Jan 2012"*
+Um die Losungen mit einem zukünftigen Datum zu testen (hier 01.01.2012), rufen Sie auf: *sudo date -s "01 Jan 2012"* und starten Conky.
 
 # Fehler und Lösungen
 Im Folgenden bezeichnet das Kürzel <Jahr> das jeweils aktuelle Jahr, z.B. 2011.
 Fehlerbehebungen werden abhängig von den Einstellungen für das Aktualisierungsintervall (Konfigurationseintrag update_interval in der Datei .conkyrc) zeitverzögert wirksam.
-
 
 ## Anstelle der Losungen erscheint gar nichts.
 ### Ursachen
@@ -108,5 +108,5 @@ in KDE erneut gestartet.
 2. Führen Sie den Befehl ps -ef | grep conky aus. 
 3. Von allen Zeilen, die in der letzten Spalte nur den Eintrag 'conky' enthalten, notieren Sie sich den Wert in der zweiten Spalte (das ist die Prozessnummer).
 4. Führen Sie den Befehl kill -9 $Prozessnummer aus (ersetzen Sie dabei $Prozessnummer durch den Wert aus Schritt 3). Wiederholen Sie diesen Schritt bis nur noch ein einzelner Conky-Prozess läuft.
-5. Falls sich in ihrem HOME-Verzeichnis in der Datei .profilerc die Zeile 'conky &' befindet, entfernen Sie diese und speichern die Datei.
+5. Falls sich in Ihrem HOME-Verzeichnis in der Datei .profilerc die Zeile 'conky &' befindet, entfernen Sie diese und speichern die Datei.
 

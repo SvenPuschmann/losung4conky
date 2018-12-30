@@ -35,10 +35,22 @@ I successfully tested the program with Perl 5, Conky 1.7-1.10 and various Linux 
 2. Undo the changes in .conkyrc.
 3. Start Conky. If Conky was already running at step 2, the changes should apply after Conky's update interval (usually a few seconds). Otherwise stop Conky and restart it.
 
+## Development and test
+1. Read the current [terms of use (in German)] (https://www.losungen.de/download/nutzungsbedingungen/).
+2. Download the [watchwords] (https://www.losungen.de/download/) in the format "CSV/TXT (Tab getrennt)" (tabulator separated CSV/TXT). If they don't work, try "CSV / TXT MAC (Tab getrennt)".
+3. Unzip the downloaded file.
+4. Rename the unzipped CSV-file to losungen< year >.csv, e.g. losungen2011.csv und copy it to the directory *data*.
+5. Change to the source code root directory.
+6. Create the distribution packages:
+   * all packages (TAR, TAR.GZ, ZIP): *make*
+   * only the ZIP package: *make deploy*
+   * only the TAR- and TAR.GZ package: *make dist*
+7. Copy the distribution packages to a test system or the target system and install the program there.
+
+To test Losungen for Conky with a future date (e.g. 01.01.2012), enter *sudo date -s "01 Jan 2012"* and start Conky.
 
 # Errors and solutions
 Preface: Below the phrase <Year> stands for the current year, e.g. 2011. Solutions might take effect after a little delay, depending on the setting update_interval in your file .conkyrc.
-
 
 ## Instead of the Bible verses nothing is shown.
 ### Cause
