@@ -7,7 +7,7 @@ DIST-NAME	= 	losung4conky
 DIST-HELPER-DIR	=	$(DIST-DIR)/$(DIST-NAME)
 
 # run the following targets unconditionally
-.PHONY: all clean dist distclean tar zip
+.PHONY: all dist dist-zip clean distclean
 
 # By default (i.e. running make without parameters) create distribution packages.
 # The default target must be the first target.
@@ -26,18 +26,17 @@ dist:
 	rm -rf $$tempdir
 
 # copy files to the deployment directory and create archive
-dist-zip: prep zip
+dist-zip:
+	export tempdir=$$( mktemp -d -t ); \
+	export distname=$(DIST-NAME); \
+	for subdir in src data doc; do \
+		cd $$subdir && $(MAKE) dist && cd -; \
+	done; \
+	cd dist && $(MAKE) dist-zip
+	rm -rf $$tempdir
 
 clean:
 	@cd data && $(MAKE) clean
 
 distclean: clean
 	@cd dist && $(MAKE) distclean
-
-# create distribution packages
-zip:
-	@echo "*** Creating ZIP distribution package ***"
-	cd $(DIST-DIR) && \
-	zip -r -b /tmp $(DIST-NAME) $(DIST-NAME)
-	@echo "Done"
-
