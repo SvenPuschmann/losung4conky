@@ -23,8 +23,9 @@ all:
 	@echo "Read doc/README.md (in English) or doc/LIESMICH.md (in German) for more information."
 
 # copy files to the deployment directory and create archive
-deploy: clean prep zip
-dist: clean prep tar
+dist-tar: clean prep tar
+dist-zip: clean prep zip
+dist: dist-tar
 
 # clean output directory: remove everything but .gitignore
 clean:
