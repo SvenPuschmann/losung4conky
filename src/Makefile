@@ -33,3 +33,8 @@ help:
 	@echo "You can choose another program directory by typing 'make DEST=<program directory> install' (without arrow brackets)."
 	@echo "To uninstall the program, type 'make uninstall' or 'make DEST=<program directory> uninstall' (without arrow brackets)."
 	@echo "For further information read file README.md (in English) or LIESMICH.md (in German)"
+
+dist:
+	@cp --verbose losung.pl $(tempdir); \
+	cp --verbose Makefile $(tempdir); \
+	cp --verbose conkyrc-*-example $(tempdir)

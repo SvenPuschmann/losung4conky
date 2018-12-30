@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all clean dist
 
 all:
 	@datadir=$$( pwd ); \
@@ -26,3 +26,6 @@ all:
 clean:
 	@find . ! -name '.gitignore' ! -name 'Makefile' ! -name '.' -exec \
 	rm --force --verbose --recursive {} +
+
+dist:
+	@cp --verbose losungen*.csv $(tempdir)
