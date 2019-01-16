@@ -7,7 +7,7 @@ DIST-NAME	= 	losung4conky
 DIST-HELPER-DIR	=	$(DIST-DIR)/$(DIST-NAME)
 
 # run the following targets unconditionally
-.PHONY: all dist dist-zip clean distclean
+.PHONY: all dist dist-zip clean distclean install uninstall
 
 # By default (i.e. running make without parameters) create distribution packages.
 # The default target must be the first target.
@@ -42,3 +42,9 @@ clean:
 
 distclean: clean
 	@cd dist && $(MAKE) distclean
+
+install:
+	@cd src && $(MAKE) install
+
+uninstall:
+	@cd src && $(MAKE) uninstall
