@@ -23,6 +23,7 @@ dist:
 	for subdir in src data doc dist; do \
 		cd $$subdir && $(MAKE) dist && cd -; \
 	done; \
+	mv -f $$tempdir/* dist; \
 	rm -rf $$tempdir
 
 # copy files to the deployment directory and create archive

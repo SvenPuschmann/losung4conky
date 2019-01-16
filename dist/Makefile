@@ -2,8 +2,15 @@
 
 dist:
 	@echo Creating TAR distribution packages $(distname); \
-	tar --create --file $(distname).tar --verbose $(tempdir) && \
-	gzip --keep --verbose --force $(distname).tar
+	basedir=`basename $(tempdir)`; \
+	cd $(tempdir) && cd .. && \
+	rm -rf $(distname) && \
+	mv -f $$basedir $(distname) && \
+	tar --create --file $(distname).tar --verbose $(distname) && \
+	gzip --keep --verbose --force $(distname).tar && \
+	mkdir $$basedir &&  \
+	mv $(distname).tar* $$basedir && \
+	rm -rf $(distname);
 
 dist-zip:
 	@echo Creating ZIP distribution package $(distname); \
