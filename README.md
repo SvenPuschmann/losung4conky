@@ -1,6 +1,6 @@
 *Losungen for Conky* shows the German daily watchwords from the Moravian church (Herrnhuter Bruedergemeine) in a Conky window.
 
-#Requirements
+# Requirements
 The program requires Linux, a Perl interpreter and the system monitor Conky.
 An internet connection is only required for installation and to update the watchwords.
 
