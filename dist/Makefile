@@ -14,7 +14,14 @@ dist:
 
 dist-zip:
 	@echo Creating ZIP distribution package $(distname); \
-	zip -r -v -b /tmp $(distname) $(tempdir)
+	basedir=`basename $(tempdir)`; \
+	cd $(tempdir) && cd .. && \
+	rm -rf $(distname) && \
+	mv -f $$basedir $(distname) && \
+	zip -r -v -b /tmp $(distname) $(distname) && \
+	mkdir $$basedir &&  \
+	mv $(distname).zip $$basedir && \
+	rm -rf $(distname);
 
 distclean:
 	@find . ! -name '.gitignore' ! -name 'Makefile' ! -name '.' -exec \

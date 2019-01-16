@@ -33,7 +33,8 @@ dist-zip:
 	for subdir in src data doc; do \
 		cd $$subdir && $(MAKE) dist && cd -; \
 	done; \
-	cd dist && $(MAKE) dist-zip
+	cd dist && $(MAKE) dist-zip && cd -; \
+	mv -f $$tempdir/* dist; \
 	rm -rf $$tempdir
 
 clean:
