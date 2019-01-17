@@ -19,21 +19,28 @@ I successfully tested the program with Perl 5, Conky 1.7-1.10 and various Linux 
 
 # How to
 ## Installation
-1. Extract the archive file to a temporary directory.
-2. As user 'root' type 'make install'. This will install the program files to
+1. Clone the Git repository to a local directory.
+2. Run 'make && make dist' or 'make && make dist-zip'.
+3. Change to folder 'dist' and extract the archive file. Change to
+   folder 'losung4conky'.
+4. Run 'sudo make install'. This will install the program files to
    /usr/local/bin. You can choose another program directory by typing 
    'make DEST=<program directory> install' (without arrow brackets).
-3. Configure your file .conkyrc: 
+5. Configure your file .conkyrc: 
    1. Add the following line to the configuration section (before the line TEXT)
       text_buffer_size 768
       This will tell Conky to show the whole text.
    2. Add a call of losung.pl to the TEXT section (after the line TEXT) at the desired position. You can find hints and templates to copy in the file conky-example-rc.
-4. Start Conky, using your regular user account. If Conky was already running at step 3, the changes should apply after Conky's update interval (usually a few seconds). Otherwise stop Conky and restart it.
+6. Start Conky, using your regular user account. If Conky was already running at step 3, the changes should apply after Conky's update interval (usually a few seconds). Otherwise stop Conky and restart it.
 
 ## Uninstallation
-1. As user 'root' run 'make uninstall' from the temporary installation directory or remove the files losung.pl and losungen*.csv from the program directory manually.
-2. Undo the changes in .conkyrc.
-3. Start Conky. If Conky was already running at step 2, the changes should apply after Conky's update interval (usually a few seconds). Otherwise stop Conky and restart it.
+1. Clone the Git repository to a local directory.
+2. Run 'make && make dist' or 'make && make dist-zip'.
+3. Change to folder 'dist' and extract the archive file. Change to
+   folder 'losung4conky'.
+4. Run 'sudo make uninstall' from the temporary installation directory or remove the files losung.pl and losungen*.csv from the program directory manually.
+5. Undo the changes in .conkyrc.
+6. Start Conky. If Conky was already running at step 2, the changes should apply after Conky's update interval (usually a few seconds). Otherwise stop Conky and restart it.
 
 ## Development and test
 1. Read the current [terms of use (in German)] (https://www.losungen.de/download/nutzungsbedingungen/).
@@ -42,9 +49,8 @@ I successfully tested the program with Perl 5, Conky 1.7-1.10 and various Linux 
 4. Rename the unzipped CSV-file to losungen< year >.csv, e.g. losungen2011.csv und copy it to the directory *data*.
 5. Change to the source code root directory.
 6. Create the distribution packages:
-   * all packages (TAR, TAR.GZ, ZIP): *make*
-   * only the ZIP package: *make deploy*
    * only the TAR- and TAR.GZ package: *make dist*
+   * only the ZIP package: *make dist-zip*
 7. Copy the distribution packages to a test system or the target system and install the program there.
 
 To test Losungen for Conky with a future date (e.g. 01.01.2012), enter *sudo date -s "01 Jan 2012"* and start Conky.

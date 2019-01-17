@@ -19,18 +19,21 @@ Das Programm wurde erfolgreich mit Perl 5, Conky 1.7-1.10 und verschiedenen Linu
 
 # Anleitung
 ## Installation
-1. Entpacken Sie das Installationspaket in ein temporäres Verzeichnis.
-2. Installieren Sie als Benutzer 'root' mit dem Befehl 'make install' das Programm.
+1. Klonen Sie das Git-Repository in ein Arbeitsverzeichnis auf Ihrem Rechner.
+2. Führen Sie 'make && make dist' oder 'make && make dist-zip' aus.
+3. Wechseln Sie in das Verzeichnis 'dist' and entpacken die Archivdatei. Wechseln Sie in das Verzeichnis 'losung4conky'.
+4. Entpacken Sie das Installationspaket in ein temporäres Verzeichnis.
+5. Installieren Sie als Benutzer 'root' mit dem Befehl 'make install' das Programm.
    Standardmäßig wird das Programm dabei in das Verzeichnis /usr/local/bin installiert.
    Sie können ein anderes Verzeichnis angeben, indem sie den Befehl 
    'make DEST=<Zielverzeichnis> install' (ohne die spitzen Klammern) aufrufen.
-3. Passen Sie ihre Datei .conkyrc an: 
+6. Passen Sie ihre Datei .conkyrc an: 
    1. Tragen Sie im Konfigurationsabschnitt (vor der Zeile TEXT) ein:
       text_buffer_size 768
    2. Tragen Sie im Inhaltsabschnitt (nach der Zeile TEXT) an der gewünschten
       Position den Aufruf des Programms losung.pl ein. Hinweise und Kopiervorlagen 
       zur Konfiguration der Datei .conkyrc finden Sie in der Datei conkyrc-1.9-example (für Conky 1.9) oder conkyrc-1.10-example (für Conky 1.10). 
-4. Starten Sie Conky unter ihrer normalen Benutzerkennung. Falls Conky schon gestartet war, als Sie Schritt 3 ausführten, sollten die Änderungen nach Ablauf des Aktualisierungsintervalls (in der Regel wenige Sekunden) wirksam werden. Andernfalls beenden Sie Conky und starten es erneut.
+7. Starten Sie Conky unter ihrer normalen Benutzerkennung. Falls Conky schon gestartet war, als Sie Schritt 3 ausführten, sollten die Änderungen nach Ablauf des Aktualisierungsintervalls (in der Regel wenige Sekunden) wirksam werden. Andernfalls beenden Sie Conky und starten es erneut.
 
 ## Deinstallation
 1. Führen Sie als Benutzer 'root' den Befehl 'make uninstall' aus oder löschen Sie die Dateien losung.pl und losungen*.csv im Programmverzeichnis manuell.
